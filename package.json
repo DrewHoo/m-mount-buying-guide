@@ -1,0 +1,24 @@
+{
+  "name": "m-mount-buying-guide",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/prerender.mjs",
+    "preview": "vite preview",
+    "gen:og": "node scripts/gen-og.mjs",
+    "gen:favicon": "node scripts/gen-favicon.mjs",
+    "fetch:images": "node scripts/fetch-images.mjs",
+    "check:data": "node scripts/check-data.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "sharp": "^0.34.5",
+    "vite": "^5.4.11"
+  }
+}
