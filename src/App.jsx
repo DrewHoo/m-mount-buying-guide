@@ -224,31 +224,63 @@ function Chip({ label, value, tone }) {
 const relTone = { A: 'good', B: 'ok', C: 'warn', D: 'bad' }
 const sealingLabel = { none: 'None', splash: 'Splash resistant', ip: 'IP-rated' }
 
+function Credit({ img }) {
+  return (
+    <>
+      <a href={img.pageUrl} target="_blank" rel="noreferrer">
+        {img.credit}
+      </a>
+      , {img.license}
+    </>
+  )
+}
+
 function CameraImage({ camera, size }) {
   const img = camera.image
-  if (!img) return <div className={`img-missing ${size}`}>No free image</div>
-  return (
-    <figure className={`camimg ${size}`}>
-      <img src={`${BASE}${img.src}`} alt={img.alt} loading="lazy" />
-      <figcaption>
-        <a href={img.pageUrl} target="_blank" rel="noreferrer">
-          {img.credit}
+  if (!img) {
+    return (
+      <div className={`img-missing ${size}`}>
+        <span>No freely licensed photo yet.</span>
+        <a href={camera.referenceUrl} target="_blank" rel="noreferrer">
+          Manufacturer page
         </a>
-        , {img.license}
-      </figcaption>
-    </figure>
+      </div>
+    )
+  }
+  return (
+    <div className="imgs">
+      <figure className={`camimg ${size}`}>
+        <img src={`${BASE}${img.src}`} alt={img.alt} loading="lazy" />
+        {img.standIn && <span className="standin">stand-in</span>}
+        <figcaption>
+          {img.standIn ? <span className="standin-note">{img.standIn} </span> : null}
+          <Credit img={img} />
+        </figcaption>
+      </figure>
+      {camera.altImage && (
+        <figure className="camimg alt">
+          <img src={`${BASE}${camera.altImage.src}`} alt={camera.altImage.alt} loading="lazy" />
+          <figcaption>
+            {camera.altImage.caption} <Credit img={camera.altImage} />
+          </figcaption>
+        </figure>
+      )}
+    </div>
   )
 }
 
 // ---- Timeline --------------------------------------------------------------
 function Timeline({ cameras }) {
-  let lastFamily = null
+  // Strict ship order, so a late reissue (the 2019 M-E Typ 240) lands among
+  // the M10s. The generation header appears once, on first appearance; every
+  // entry also carries its generation on the rail so late entries read right.
+  const seen = new Set()
   return (
     <section className="timeline" aria-label="Release timeline">
       {cameras.map((c) => {
         const fam = familyById[c.family]
-        const showFamily = fam.id !== lastFamily
-        lastFamily = fam.id
+        const showFamily = !seen.has(fam.id)
+        seen.add(fam.id)
         return (
           <React.Fragment key={c.id}>
             {showFamily && (
@@ -275,6 +307,7 @@ function TimelineEntry({ camera: c, fam }) {
         <span className="tl-dot" />
         <span className="tl-date">{fmtDate(c.shipped)}</span>
         <span className="tl-age muted">{age} yrs old</span>
+        <span className="tl-fam">{fam.short}</span>
       </div>
       <div className="card tl-card">
         <div className="tl-top">
@@ -444,8 +477,8 @@ function Table({ cameras, sort, dir, onSort }) {
       </div>
       <p className="muted small">
         Usable ISO is the reviewer consensus for "clean" and "still usable with noise reduction", not the max setting. Reliability
-        grades: A no known failure mode, B minor or rare, C a real known issue to check for, D a known issue that can total the
-        body. Click a model name to jump to its timeline entry.
+        grades: A no known failure mode on a current platform, B no known failure mode but an aging platform, C a real known
+        issue to check for, D a known issue that can total the body. Click a model name to jump to its timeline entry.
       </p>
     </section>
   )

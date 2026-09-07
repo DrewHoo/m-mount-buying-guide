@@ -12,6 +12,8 @@ const outDir = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'public')
 mkdirSync(outDir, { recursive: true })
 
 const colorOf = Object.fromEntries(FAMILIES.map((f) => [f.id, f.color]))
+// Shorter labels where the full names collide on the rail.
+const OG_LABEL = { mm: 'MM (CCD)', mm246: 'MM (Typ 246)', pixiimax: 'Pixii Max', me220: 'M-E (220)', me240: 'M-E (240)' }
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
 
 const render = (W, H, name) => {
@@ -28,10 +30,10 @@ const render = (W, H, name) => {
   // Stagger labels so neighbours don't collide.
   const labels = CAMERAS.map((c, i) => {
     const cx = x(c.shipped)
-    const lane = i % 4
+    const lane = i % 5
     const ly = railY - 34 - lane * 26
     return `<line x1="${cx}" y1="${railY - 8}" x2="${cx}" y2="${ly + 6}" stroke="${colorOf[c.family]}" stroke-opacity="0.5" stroke-width="1.5"/>
-      <text x="${cx}" y="${ly}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#e8e8e8" font-weight="600">${esc(c.name)}</text>`
+      <text x="${cx}" y="${ly}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#e8e8e8" font-weight="600">${esc(OG_LABEL[c.id] || c.name)}</text>`
   })
   const dots = CAMERAS.map((c) => `<circle cx="${x(c.shipped)}" cy="${railY}" r="9" fill="${colorOf[c.family]}" stroke="#0a0d12" stroke-width="3"/>`)
   const ticks = []
