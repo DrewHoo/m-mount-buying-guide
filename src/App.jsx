@@ -444,7 +444,7 @@ function Note({ label, children }) {
 // ---- Table -----------------------------------------------------------------
 const COLUMNS = [
   { id: 'name', label: 'Model', get: (c) => c.name, render: (c) => <ModelCell camera={c} /> },
-  { id: 'shipped', label: 'Shipped', get: (c) => c.shipped, render: (c) => `${fmtDate(c.shipped)} (${yearsOld(c.shipped)} y)` },
+  { id: 'shipped', label: 'Shipped', get: (c) => c.shipped, render: (c) => `${fmtDate(c.shipped)} · ${yearsOld(c.shipped)}y` },
   { id: 'sensor', label: 'Sensor', get: (c) => `${c.sensor.type}${c.sensor.mono ? '-mono' : ''}-${c.sensor.mp}`, render: (c) => `${c.sensor.mp} MP ${c.sensor.type}${c.sensor.mono ? ' mono' : ''}` },
   { id: 'iso', label: 'Usable ISO', get: (c) => c.iso.usable, render: (c) => `${c.iso.usable.toLocaleString()} / ${c.iso.ceiling.toLocaleString()}`, title: 'clean / max usable' },
   { id: 'shutter', label: 'Shutter', get: (c) => c.shutter.short, render: (c) => shutterCompact(c), title: 'Flash sync is 1/180 on every Leica' },
