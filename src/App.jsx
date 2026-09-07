@@ -222,6 +222,22 @@ function Chip({ label, value, tone }) {
 }
 
 const relTone = { A: 'good', B: 'ok', C: 'warn', D: 'bad' }
+// Table cell: drop the constant 1/180 sync and the noise adjective so the
+// column stays narrow; the timeline chip keeps the full text.
+const screenCompact = (c) => {
+  if (!c.screen.present) return c.id === 'pixiimax' ? 'None (top OLED)' : c.id === 'md262' ? 'None' : 'None (phone)'
+  return `${c.screen.size}"${c.screen.touch ? ' touch' : ''}${c.screen.liveView ? ' LV' : ' no LV'}${c.id === 'ev1' ? ' + EVF' : ''}`
+}
+const storageCompact = (c) => {
+  if (c.storage.cards === 'none') return `Internal ${c.storage.internal}`
+  const slot = c.storage.uhs === 'UHS-II' ? 'SD UHS-II' : c.storage.cards === 'SD/SDHC' ? 'SD ≤32 GB' : 'SDXC'
+  return c.storage.internal ? `${slot} + ${c.storage.internal}` : slot
+}
+const shutterCompact = (c) => {
+  if (!c.shutter.maxMech) return `e-only ${c.shutter.electronic}`
+  const q = /quietest/.test(c.shutter.short) ? ' (quietest)' : /quiet/.test(c.shutter.short) ? ' (quiet)' : ''
+  return c.shutter.electronic ? `${c.shutter.maxMech} + e ${c.shutter.electronic}${q}` : `${c.shutter.maxMech}${q}`
+}
 const sealingLabel = { none: 'None', splash: 'Splash resistant', ip: 'IP-rated' }
 
 function Credit({ img }) {
@@ -431,28 +447,36 @@ const COLUMNS = [
   { id: 'shipped', label: 'Shipped', get: (c) => c.shipped, render: (c) => `${fmtDate(c.shipped)} (${yearsOld(c.shipped)} y)` },
   { id: 'sensor', label: 'Sensor', get: (c) => `${c.sensor.type}${c.sensor.mono ? '-mono' : ''}-${c.sensor.mp}`, render: (c) => `${c.sensor.mp} MP ${c.sensor.type}${c.sensor.mono ? ' mono' : ''}` },
   { id: 'iso', label: 'Usable ISO', get: (c) => c.iso.usable, render: (c) => `${c.iso.usable.toLocaleString()} / ${c.iso.ceiling.toLocaleString()}`, title: 'clean / max usable' },
-  { id: 'shutter', label: 'Shutter', get: (c) => c.shutter.short, render: (c) => c.shutter.short },
-  { id: 'screen', label: 'Screen', get: (c) => (c.screen.present ? c.screen.size : 0), render: (c) => c.screen.short },
-  { id: 'cards', label: 'Storage', get: (c) => c.storage.short, render: (c) => c.storage.short },
-  { id: 'sealing', label: 'Sealing', get: (c) => ({ none: 0, splash: 1, ip: 2 })[c.sealing.level], render: (c) => sealingLabel[c.sealing.level] },
+  { id: 'shutter', label: 'Shutter', get: (c) => c.shutter.short, render: (c) => shutterCompact(c), title: 'Flash sync is 1/180 on every Leica' },
+  { id: 'screen', label: 'Screen', get: (c) => (c.screen.present ? c.screen.size : 0), render: (c) => screenCompact(c), title: 'Size, touch, live view' },
+  { id: 'cards', label: 'Storage', get: (c) => c.storage.short, render: (c) => storageCompact(c) },
+  { id: 'sealing', label: 'Sealing', get: (c) => ({ none: 0, splash: 1, ip: 2 })[c.sealing.level], render: (c) => ({ none: 'None', splash: 'Splash', ip: 'IP' })[c.sealing.level] },
   { id: 'close', label: 'Close focus', get: (c) => c.closeFocus.m, render: (c) => `${c.closeFocus.m} m` },
-  { id: 'weight', label: 'Weight', get: (c) => c.body.weight, render: (c) => `${c.body.weight} g` },
-  { id: 'depth', label: 'Depth', get: (c) => c.body.d, render: (c) => `${c.body.d} mm` },
+  { id: 'weight', label: 'Weight · depth', get: (c) => c.body.weight, render: (c) => `${c.body.weight} g · ${c.body.d} mm`, title: 'Sorts by weight' },
   { id: 'rel', label: 'Reliability', get: (c) => c.reliability.grade, render: (c) => <span className={`grade ${relTone[c.reliability.grade]}`}>{c.reliability.grade}</span> },
-  { id: 'price', label: 'Used, typical', get: (c) => c.prices.usedTypical ?? c.prices.fallback?.typical ?? Infinity, render: (c) => <PriceCell camera={c} /> },
-  { id: 'range', label: 'Used range', get: (c) => c.prices.usedLow ?? c.prices.fallback?.low ?? Infinity, render: (c) => <RangeCell camera={c} /> },
+  { id: 'price', label: 'Used price', get: (c) => c.prices.usedTypical ?? c.prices.fallback?.typical ?? Infinity, render: (c) => <PriceCell camera={c} />, title: 'Typical, then the observed range' },
 ]
 
 // Retailer price when one of the three had stock; otherwise the labeled
 // fallback (eBay sold, MPB, dealers) marked with a tilde and a tooltip.
 function PriceCell({ camera: c }) {
-  if (c.prices.usedTypical != null) return fmtUsd(c.prices.usedTypical)
-  if (c.prices.fallback) return <span className="fallback" title={`${c.prices.fallback.detail} ${c.prices.fallback.source}`}>~{fmtUsd(c.prices.fallback.typical)}</span>
-  return <span className="muted">none</span>
-}
-function RangeCell({ camera: c }) {
-  if (c.prices.usedLow != null) return `${fmtUsd(c.prices.usedLow)}–${fmtUsd(c.prices.usedHigh)}`
-  if (c.prices.fallback) return <span className="fallback">~{fmtUsd(c.prices.fallback.low)}–{fmtUsd(c.prices.fallback.high)}</span>
+  const p = c.prices
+  if (p.usedTypical != null) {
+    return (
+      <span className="pricecell">
+        <strong>{fmtUsd(p.usedTypical)}</strong>
+        <span className="muted small">{fmtUsd(p.usedLow)}–{fmtUsd(p.usedHigh)}</span>
+      </span>
+    )
+  }
+  if (p.fallback) {
+    return (
+      <span className="pricecell fallback" title={`${p.fallback.detail} ${p.fallback.source}`}>
+        <strong>~{fmtUsd(p.fallback.typical)}</strong>
+        <span className="small">{fmtUsd(p.fallback.low)}–{fmtUsd(p.fallback.high)} elsewhere</span>
+      </span>
+    )
+  }
   return <span className="muted">no stock</span>
 }
 
@@ -477,6 +501,8 @@ function Table({ cameras, sort, dir, onSort }) {
     arr.sort((a, b) => {
       const x = col.get(a)
       const y = col.get(b)
+      // Bodies with no price (Infinity) stay at the bottom whichever way you sort.
+      if (x === Infinity || y === Infinity) return x === y ? 0 : x === Infinity ? 1 : -1
       const r = typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))
       return dir === 'asc' ? r : -r
     })
