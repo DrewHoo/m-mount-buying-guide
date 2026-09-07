@@ -6,6 +6,8 @@ const BASE = import.meta.env.BASE_URL
 const familyById = Object.fromEntries(FAMILIES.map((f) => [f.id, f]))
 
 const fmtUsd = (n) => (n == null ? '—' : `$${n.toLocaleString('en-US')}`)
+// "$3,836–$3,836" reads as a bug when only one body was in stock.
+const fmtRange = (low, high) => (low === high ? fmtUsd(low) : `${fmtUsd(low)}–${fmtUsd(high)}`)
 const yearsOld = (shipped) => {
   const [y, m] = shipped.split('-').map(Number)
   const now = new Date(META.asOf)
@@ -375,14 +377,14 @@ function TimelineEntry({ camera: c, fam }) {
             {c.prices.usedTypical != null ? (
               <p className="price">
                 <span className="price-typ">{fmtUsd(c.prices.usedTypical)}</span>
-                <span className="muted"> typical · {fmtUsd(c.prices.usedLow)}–{fmtUsd(c.prices.usedHigh)}</span>
+                <span className="muted"> typical · {fmtRange(c.prices.usedLow, c.prices.usedHigh)}</span>
               </p>
             ) : c.prices.fallback ? (
               <p className="price">
                 <span className="price-typ">~{fmtUsd(c.prices.fallback.typical)}</span>
                 <span className="muted">
                   {' '}
-                  {fmtUsd(c.prices.fallback.low)}–{fmtUsd(c.prices.fallback.high)} elsewhere
+                  {fmtRange(c.prices.fallback.low, c.prices.fallback.high)} elsewhere
                 </span>
               </p>
             ) : (
@@ -465,7 +467,7 @@ function PriceCell({ camera: c }) {
     return (
       <span className="pricecell">
         <strong>{fmtUsd(p.usedTypical)}</strong>
-        <span className="muted small">{fmtUsd(p.usedLow)}–{fmtUsd(p.usedHigh)}</span>
+        <span className="muted small">{fmtRange(p.usedLow, p.usedHigh)}</span>
       </span>
     )
   }
@@ -473,7 +475,7 @@ function PriceCell({ camera: c }) {
     return (
       <span className="pricecell fallback" title={`${p.fallback.detail} ${p.fallback.source}`}>
         <strong>~{fmtUsd(p.fallback.typical)}</strong>
-        <span className="small">{fmtUsd(p.fallback.low)}–{fmtUsd(p.fallback.high)} elsewhere</span>
+        <span className="small">{fmtRange(p.fallback.low, p.fallback.high)}</span>
       </span>
     )
   }
