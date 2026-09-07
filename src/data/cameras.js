@@ -90,7 +90,9 @@ const ROWS = [
     firmware: { latest: '1.216', date: '2017-11', active: false, note: 'Frozen at 1.216 (Nov 2017). Leica has removed M9 firmware from its downloads; Red Dot Forum hosts copies.' },
     identifiers: ['Red dot and "M9" lettering on the front (both absent on the M9-P)', 'Frame-line preview lever beside the mount (absent on the M-E)', 'USB port under a flap (absent on the M-E)', 'Leatherette covering, plain-glass 2.5" screen', 'Steel grey or black paint, later silver chrome'],
     msrp: 6995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+
+    ] },
     verdict: "Only buy one with a documented sensor replacement or a Kolari repair receipt, and price the rest as if the sensor will fail. If you want the CCD files, the M-E (Typ 220) is the same camera for less.",
     image: { src: 'img/m9.jpg', alt: 'Leica M9 in black, front view with a lens fitted', credit: 'Denoir', license: 'CC BY-SA 3.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M9.jpg' },
     altImage: { src: 'img/m9-back.jpg', alt: 'Rear of the Leica M9 showing the 2.5-inch screen and the five-button column', credit: 'Julien Min GONG', license: 'CC BY 2.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M9_Back.jpg', caption: 'Rear: 2.5" screen, five-button column, thumb wheel.' },
@@ -115,7 +117,9 @@ const ROWS = [
     firmware: { latest: '1.216', date: '2017-11', active: false, note: 'Shares the M9 firmware line, frozen at 1.216.' },
     identifiers: ['No red dot and no "M9" lettering; Leica script engraved on the top plate', 'Vulcanite covering, coarser than the M9 leatherette', 'Sapphire screen cover (reflections look different from plain glass)', 'Frame-line lever present, which separates it from the M-E', 'Black paint or silver chrome'],
     msrp: 7995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+
+    ] },
     verdict: "The nicest CCD M to own, and it carries the same sensor risk as the M9. Pay the premium only for a body with a replaced sensor; otherwise the extra money buys cosmetics on a camera that may need a $999 repair.",
     image: { src: 'img/m9p.jpg', alt: 'Silver Leica M9-P showing the engraved top plate and no red dot', credit: 'Ernst Vikne', license: 'CC BY-SA 2.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M9-P_cropped.jpg' },
   },
@@ -139,7 +143,9 @@ const ROWS = [
     firmware: { latest: '1.216', date: '2017-11', active: false, note: 'Shares the M9 firmware line.' },
     identifiers: ['Anthracite grey paint only, with the red dot present', 'No frame-line preview lever beside the mount, the most reliable tell', 'No USB port', 'Plain-glass 2.5" screen, 37 mm deep (the later M-E Typ 240 is 42 mm deep with a 3" screen)'],
     msrp: 5450,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+
+    ] },
     verdict: "If you want CCD files and nothing else, this is the one: the missing lever and USB port cost nothing in practice. Same rule as the M9: replaced sensor or Kolari receipt, or price it as a gamble.",
     image: { src: 'img/me220.jpg', alt: 'Leica M-E Typ 220 in anthracite grey with a Summarit lens, front view on white', credit: 'Ben Fredericson', license: 'CC BY 2.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M-E_Typ_220.jpg' },
     altImage: { src: 'img/me220-top.jpg', alt: 'Top plate of the anthracite Leica M-E showing no frame-line preview lever', credit: 'BUTTON74', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:M9Leica-2.jpg', caption: 'Top plate: shutter dial, hot shoe, no preview lever.' },
@@ -164,7 +170,10 @@ const ROWS = [
     firmware: { latest: '1.022', date: '2017-11', active: false, note: 'Frozen at 1.022 (Nov 2017).' },
     identifiers: ['"Leica M Monochrom" on the top plate, no red dot', 'Frame-line lever present', 'Slim 37 mm body with a 2.5" screen; the CMOS Typ 246 is 42 mm deep with a 3" screen', 'Black chrome until the 2014 silver variant'],
     msrp: 7950,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 3836, usedTypical: 3836, usedHigh: 3836, newPrice: null, note: "One plain body in stock across the three retailers; the B&H Drifter set is a limited edition with a lens and is excluded from the range.", sources: [
+      { retailer: "KEH", grade: "one body, listed as updated sensor", price: 3836, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "B&H Used", grade: "grade 9, Drifter special edition with 28 mm f/2 lens", price: 9999, url: "https://www.bhphotovideo.com/c/product/802761913-USE/leica_m_monochrom_drifter_digital.html" }
+    ] },
     verdict: "Beautiful files, no safety net. Unless the seller can prove a corrosion-resistant sensor, buy the CMOS Monochrom (Typ 246) or the M10 Monochrom instead.",
     image: { src: 'img/mm.jpg', alt: 'Leica M Monochrom with a 50 mm Summilux and grip, three-quarter view on white', credit: 'JamesPFisherIII', license: 'CC BY 3.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M_Monochrom.jpeg' },
     altImage: { src: 'img/mm-top.jpg', alt: 'Close-up of the MONOCHROM engraving on the frame-line lever cover', credit: 'Christopher Michel', license: 'CC BY 2.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:The_Monochrom_(14786631637).jpg', caption: 'MONOCHROM engraving on the lever cover.' },
@@ -191,7 +200,10 @@ const ROWS = [
     firmware: { latest: '2.1.0.0', date: '2021-02', active: false, note: 'Final release 2.1.0.0, Feb 2021.' },
     identifiers: ['Red dot on the front', 'Six-button column left of the 3" screen (the M10 has three)', 'No ISO dial on the top plate', 'Live view button and video record button', '42 mm deep; noticeably thicker in the hand than any other M'],
     msrp: 6950,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 3200, usedTypical: 3400, usedHigh: 3636, newPrice: null, note: "KEH had none. The B&H \"Leica 60\" edition at $14,999 is a collector set and excluded.", sources: [
+      { retailer: "B&H Used", grade: "black, with multi-function handgrip", price: 3200, url: "https://www.bhphotovideo.com/c/product/803469655-USE/leica_10770_m_typ_240_digital.html" },
+      { retailer: "Adorama Used", grade: "Average, 100 Year Anniversary Edition black", price: 3636, url: "https://www.adorama.com/used-leica-m-typ-240-100-year-anniversary-edition-digital-rangefinder-camera-body-black/p/imclcmba" }
+    ] },
     verdict: "The cheapest live-view M and still a complete camera. Buy it if the depth doesn't bother you in the hand; try an M10 first, because most people who handle both pay the difference.",
     image: { src: 'img/m240.jpg', alt: 'Leica M Typ 240 body with cap, studio front view on white', credit: 'Rama', license: 'CC BY-SA 3.0 FR', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M-240-P4140434-white.jpg' },
   },
@@ -215,7 +227,10 @@ const ROWS = [
     firmware: { latest: '2.1.0.0', date: '2021-02', active: false, note: 'Shares the Typ 240 firmware line.' },
     identifiers: ['No red dot; Leica script engraved on the top plate', 'Frame-line preview lever beside the mount', 'Sapphire screen cover', 'Has live view and video, which rules out the M262 and M-D', 'Black paint or silver chrome'],
     msrp: 7950,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 4344, usedTypical: 5000, usedHigh: 5652, newPrice: null, note: "Only the Safari variant was in stock; a standard black or silver M-P should sit at or below the low end of this band.", sources: [
+      { retailer: "KEH", grade: "Safari (olive) variant only, band across grades", price: 4344, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "Safari, top of band", price: 5652, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" }
+    ] },
     verdict: "Worth a modest premium over the Typ 240 for the buffer and the unscratchable screen. Don't pay more than that; it is the same camera.",
     image: { src: 'img/mp240.jpg', alt: 'Leica M-P Typ 240 with a 35 mm Summicron, front view on white', credit: 'Ferencvizi', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M-P_(Typ_240)_with_Summicron-M_1-2-35_mm_ASPH_L1008131.jpg' },
     altImage: { src: 'img/mp240-back.jpg', alt: 'Rear of the Leica M-P Typ 240 showing the six-button column and 3-inch screen', credit: 'Ferencvizi', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M-P_(Typ_240)_schwarz.jpg', caption: 'Rear: the Typ 240 generation six-button column.' },
@@ -240,7 +255,9 @@ const ROWS = [
     firmware: { latest: '1.1.0.0', date: '2021-02', active: false, note: 'Final release 1.1.0.0, Feb 2021.' },
     identifiers: ['Red dot present', 'No live view button and no video: the rear column reads WB, Play, Delete, ISO, Menu, Set', 'Lighter in the hand than a Typ 240 (aluminum top plate)', 'Same 42 mm body'],
     msrp: 5195,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+
+    ] },
     verdict: "The value pick if you will never use live view: same files as the Typ 240, quieter, lighter, cheaper. If you might ever want an EVF or close focus, buy the Typ 240 instead.",
     image: { src: 'img/m262.jpg', alt: 'Leica M Typ 262 with a 28 mm Elmarit, front view on a wood table', credit: 'Matthew T Rader', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M_(Typ_262)_front_with_a_Leitz_28mm_Elmarit_lens.jpg' },
     altImage: { src: 'img/m262-back.jpg', alt: 'Rear of the Leica M Typ 262 with the screen on, showing the WB button in place of live view', credit: 'Matthew T Rader', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M_(Typ_262)_back.jpg', caption: 'Rear: WB button where the Typ 240 has LV.' },
@@ -265,7 +282,10 @@ const ROWS = [
     firmware: { latest: '1.1.0.0', date: '2021-02', active: false, note: 'Final release 1.1.0.0, Feb 2021.' },
     identifiers: ['No red dot, black chrome, "MONOCHROM" on the lever cover', '42 mm-deep body with a 3" screen, which separates it from the slim 2.5"-screen CCD Monochrom', 'Records video and has live view, unlike the M262 and M-D', 'Files have no color channel'],
     msrp: 7450,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 4036, usedTypical: 4115, usedHigh: 4194, newPrice: null, note: "KEH only.", sources: [
+      { retailer: "KEH", grade: "band across grades, three in stock", price: 4036, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "top of band", price: 4194, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" }
+    ] },
     verdict: "The right first Monochrom for most people: modern sensor behavior, live view, and a fraction of the M10 Monochrom's price. Buy this before you gamble on a CCD Monochrom.",
     image: { src: 'img/mp240.jpg', alt: 'Stand-in photo: a Leica M-P Typ 240, which shares the Monochrom Typ 246 body', credit: 'Ferencvizi', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M-P_(Typ_240)_with_Summicron-M_1-2-35_mm_ASPH_L1008131.jpg', standIn: 'Shown: M-P (Typ 240). No freely licensed photo of the Typ 246 exists; it is the same body without the red dot and with "MONOCHROM" on the lever cover.' },
   },
@@ -289,7 +309,10 @@ const ROWS = [
     firmware: { latest: '1.1.0.0', date: '2021-02', active: false, note: 'Final release 1.1.0.0, Feb 2021.' },
     identifiers: ['No rear screen; silver ISO dial on the back', 'No red dot; white Leica script on the top plate', 'No thumb lever (the M10-D has a dummy film-advance lever and its ISO dial is on top)', 'Brass top plate with the M9-style step'],
     msrp: 5995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 5135, usedTypical: 5800, usedHigh: 6583, newPrice: null, note: "KEH only.", sources: [
+      { retailer: "KEH", grade: "band across grades, three in stock", price: 5135, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "top of band", price: 6583, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" }
+    ] },
     verdict: "A niche camera that holds its value because the niche is loyal. Buy it only if you have shot screenless before and liked it; the M10-D adds phone review over Wi-Fi and a thinner body for more money.",
     image: { src: 'img/md262.jpg', alt: 'Rear of the Leica M-D Typ 262 showing the blank back plate and large ISO dial', credit: 'Guido van Nispen', license: 'CC BY 2.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M-D.jpg' },
     altImage: { src: 'img/md262-front.jpg', alt: 'Front three-quarter view of the Leica M-D Typ 262', credit: 'Xavier León', license: 'CC BY 2.0', pageUrl: 'https://www.flickr.com/photos/46281009@N05/30289337502', caption: 'Front: no red dot, Leica script on top.' },
@@ -314,7 +337,9 @@ const ROWS = [
     firmware: { latest: '2.1.0.0', date: '2021-02', active: false, note: 'Tracks the Typ 240 line, frozen Feb 2021.' },
     identifiers: ['Anthracite paint with a black leather wrap', '42 mm deep with a 3" screen; the 2012 M-E (Typ 220) is 37 mm with a 2.5" screen', 'Do not pay a limited-edition premium: the "700 units" claim on Wikipedia is unsourced'],
     msrp: 3995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+
+    ] },
     verdict: "The newest 240-generation bodies at the lowest 240-generation price. If a Typ 240 is the right camera for you, look for one of these first.",
     image: { src: 'img/m240.jpg', alt: 'Stand-in photo: a Leica M Typ 240 body, which the M-E Typ 240 shares', credit: 'Rama', license: 'CC BY-SA 3.0 FR', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M-240-P4140434-white.jpg', standIn: 'Shown: M (Typ 240). No freely licensed photo of the M-E (Typ 240) exists; it is this body in anthracite paint with a leather wrap.' },
   },
@@ -340,7 +365,13 @@ const ROWS = [
     firmware: { latest: '3.22.23.38', date: '2022-11', active: false, note: 'Final 3.22.23.38, Nov 2022.' },
     identifiers: ['Red dot present', 'ISO dial on the left of the top plate, the generation marker', 'Three rear buttons (Play, LV, Menu) plus the d-pad', 'Plastic hot-shoe cover (the M10-P has a metal one)', 'Non-touch screen (the M10-P and M10-R are touch)'],
     msrp: 6595,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 4956, usedTypical: 5300, usedHigh: 5484, newPrice: null, note: "The most widely stocked older body: six listings across all three retailers.", sources: [
+      { retailer: "B&H Used", grade: "grade 8+, silver", price: 4956, url: "https://www.bhphotovideo.com/c/product/803526600-USE/leica_20001_m10_digital_rangefinder_camera.html" },
+      { retailer: "B&H Used", grade: "grade 8+, black", price: 5000, url: "https://www.bhphotovideo.com/c/product/803530724-USE/leica_20000_m10_digital_rangefinder_camera.html" },
+      { retailer: "Adorama Used", grade: "Average, silver", price: 5149, url: "https://www.adorama.com/used-leica-m10-mirrorless-digital-rangefinder-camera-silver-chrome/p/imclcm10c" },
+      { retailer: "B&H Used", grade: "grade 9, silver", price: 5300, url: "https://www.bhphotovideo.com/c/product/803526898-USE/leica_20001_m10_digital_rangefinder_camera.html" },
+      { retailer: "KEH", grade: "silver, band across grades", price: 5484, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" }
+    ] },
     verdict: "The default answer. Thin body, ISO dial, plenty of stock at every used dealer. Pay up for the M10-P only if shutter noise matters to you.",
     image: { src: 'img/m10.jpg', alt: 'Leica M10 in black, front view on a stone surface', credit: 'BUTTON74', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:M10*.jpg' },
     altImage: { src: 'img/m10-back.jpg', alt: 'Rear of the Leica M10 showing the three-button column', credit: 'BUTTON74', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:M10_Back.jpg', caption: 'Rear: three buttons, versus six on the Typ 240.' },
@@ -365,7 +396,10 @@ const ROWS = [
     firmware: { latest: '4.22.23.34', date: '2022-11', active: false, note: 'Final 4.22.23.34, Nov 2022.' },
     identifiers: ['No red dot; Leica script on the top plate', 'Metal hot-shoe cover matched to the body', 'Touchscreen: the reliable way to tell it from an M10 if the top plate is hidden', 'ISO dial and three-button rear like every M10', 'Black chrome or silver chrome'],
     msrp: 7995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 5846, usedTypical: 5900, usedHigh: 6000, newPrice: null, note: "B&H only, both silver. Black bodies usually ask a little more.", sources: [
+      { retailer: "B&H Used", grade: "grade 9, silver chrome", price: 5846, url: "https://www.bhphotovideo.com/c/product/803482774-USE/leica_20022_m10_p_digital_rangefinder_camera.html" },
+      { retailer: "B&H Used", grade: "grade 9+, silver chrome", price: 6000, url: "https://www.bhphotovideo.com/c/product/803475338-USE/leica_20022_m10_p_digital_rangefinder_camera.html" }
+    ] },
     verdict: "The best used M for most people who can afford the step up: the M10 body with the shutter you actually want. It was cut to $7,795 new in 2020, so don't let anyone price it off the launch MSRP.",
     image: { src: 'img/m10p.jpg', alt: 'Leica M10-P body in black, studio front view on white', credit: 'Ferencvizi', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M10-P_(Typ_3656)_schwarz.jpg' },
     altImage: { src: 'img/m10p-top.jpg', alt: 'Top plates of an M10 Monochrom and M10-P side by side showing the ISO dials', credit: 'Bchalifour', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:M10Pmono_L_M10P_R_top.jpg', caption: 'Top: M10 Monochrom (left) and M10-P (right), ISO dials visible.' },
@@ -391,7 +425,9 @@ const ROWS = [
     firmware: { latest: '2022-11', date: '2022-11', active: false, note: 'Shares the M10 firmware cadence, frozen Nov 2022.' },
     identifiers: ['No rear screen; fold-out exposure-compensation dial on the back', 'Dummy film-advance lever on the top plate (the M-D has none)', 'ISO dial on top (the M-D puts it on the back)', 'No red dot, Leica script on top'],
     msrp: 7995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+
+    ] },
     verdict: "The screenless M that gives you the screen back when you need it. If you are choosing between this and the M-D (Typ 262), the phone app and the thinner body are worth the difference.",
     image: { src: 'img/m10d.jpg', alt: 'Rear of the Leica M10-D showing the blank back and fold-out dial', credit: 'Ferencvizi', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M10-D_(Typ_9217).jpg' },
     altImage: { src: 'img/m10d-front.jpg', alt: 'Leica M10-D held in two hands with a Zeiss lens', credit: 'Christopher Michel', license: 'CC BY 2.0', pageUrl: 'https://www.flickr.com/photos/50979393@N00/32380914858', caption: 'In hand: note the thumb lever.' },
@@ -417,7 +453,12 @@ const ROWS = [
     firmware: { latest: '2022-11', date: '2022-11', active: false, note: 'Shares the M10 cadence, frozen Nov 2022.' },
     identifiers: ['Black only, no red dot, discreet engraving', 'ISO dial bottoms out at 160', 'Files have no color channel', 'M10 body with the top-plate ISO dial'],
     msrp: 8295,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 6399, usedTypical: 6475, usedHigh: 7117, newPrice: null, note: "The Leitz Wetzlar edition is excluded from the range.", sources: [
+      { retailer: "Adorama Used", grade: "Well Used", price: 6399, url: "https://www.adorama.com/used-leica-m10-monochrom-digital-rangefinder-camera/p/imclcm10mc" },
+      { retailer: "B&H Used", grade: "grade 8", price: 6476, url: "https://www.bhphotovideo.com/c/product/803536645-USE/leica_20050_m10_monochrom_rangefinder_camera.html" },
+      { retailer: "KEH", grade: "standard body", price: 7117, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "\"Leitz Wetzlar\" edition", price: 7637, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" }
+    ] },
     verdict: "The value Monochrom: most of the M11 Monochrom's low-light ability in a thinner body for much less money. The one to buy if black and white is all you shoot.",
     image: { src: 'img/m10m.jpg', alt: 'Leica M10 Monochrom with a 90 mm APO-Summicron, front view on concrete', credit: 'Burkhard Mücke', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M10_Monochrom_01.jpg' },
     altImage: { src: 'img/m10m-top.jpg', alt: 'Top view of the Leica M10 Monochrom showing the MONOCHROM engraving and ISO dial', credit: 'Burkhard Mücke', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M10_Monochrom_02.jpg', caption: 'Top: MONOCHROM engraving, ISO dial starting at 160.' },
@@ -443,7 +484,12 @@ const ROWS = [
     firmware: { latest: '30.22.23.34', date: '2022-11', active: false, note: 'Final 30.22.23.34, Nov 2022.' },
     identifiers: ['Shares the M10-P shell; cosmetics are unreliable', 'Confirm on the info screen or by DNG size: 7864×5200 px, not 5952×3992', 'Black chrome or silver chrome', 'Leica script on top, no red dot on most units'],
     msrp: 8295,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 7150, usedTypical: 7250, usedHigh: 7287, newPrice: null, note: "Range covers the standard chrome finishes; the black-paint variant carries a $2,500 to $3,000 collector premium.", sources: [
+      { retailer: "B&H Used", grade: "grade 8+, black chrome", price: 7150, url: "https://www.bhphotovideo.com/c/product/803510220-USE/leica_20002_m10_r_rangefinder_camera_black.html" },
+      { retailer: "KEH", grade: "silver chrome", price: 7287, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "black paint (20062), band", price: 9901, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "black paint, top of band", price: 10200, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" }
+    ] },
     verdict: "High resolution without the M11's price, electronic shutter or USB-C. If you print big and don't need the M11 extras, this is the sweet spot; if you don't print big, the M10-P is the same camera for less.",
     image: { src: 'img/m10r.jpg', alt: 'Leica M10-R on a wood table, black-and-white photo showing the top-plate engraving', credit: 'Jack Baty', license: 'CC BY-SA 2.0', pageUrl: 'https://www.flickr.com/photos/44124392764@N01/51875821611' },
   },
@@ -471,7 +517,12 @@ const ROWS = [
     firmware: { latest: '2.6.1', date: '2026-01', active: true, note: 'Still supported: 2.6.1 (Jan 2026) added Noctilux-M 35 f/1.2 support; 2.6.0 (Oct 2025) added white-balance fine-tuning and lens-profile override.' },
     identifiers: ['Red dot on the front (the M11-P, M11-D and Monochrom delete it)', 'No removable baseplate; a body sold "with spare baseplate" is not an M11', 'Black = aluminum top, light; silver = brass top, heavy', '64 GB internal memory, not 256', 'Toughened glass screen, no Content Credentials'],
     msrp: 8995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 7359, usedTypical: 7500, usedHigh: 7766, newPrice: null, note: "KEH only; no used M11 at B&H or Adorama. Glossy black excluded from the range. New price could not be verified on the observation date.", sources: [
+      { retailer: "KEH", grade: "silver chrome", price: 7359, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "black paint, band across grades (four in stock)", price: 7367, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "black paint, top of band", price: 7766, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "glossy black paint", price: 8591, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" }
+    ] },
     verdict: "The best sensor in the guide and the most modern body, with a launch-era bug history that firmware has fixed. Buy black for weight, check the battery catch, and update to 2.6.1 before judging it.",
     image: { src: 'img/m11.jpg', alt: 'Leica M11 body with cap, dead-on front view in dark studio lighting', credit: 'Henry Söderlund', license: 'CC BY 2.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M11_-_by_Henry_Söderlund_(52659157434).jpg' },
     altImage: { src: 'img/m11-lens.jpg', alt: 'Leica M11 with a 50 mm Summicron on a display plinth', credit: 'Peachyeung316', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M11_with_Summicron-M_50mm_F2_lens.jpg', caption: 'With a 50 mm Summicron.' },
@@ -496,7 +547,11 @@ const ROWS = [
     firmware: { latest: '2.6.1', date: '2026-01', active: true, note: 'Still supported on the shared M11 firmware line.' },
     identifiers: ['No red dot; a screw sits in its place', '"MONOCHROM" engraved black-on-black on the top plate', 'Grey "A" on the ISO dial, dark-tinted finder coating', 'ISO dial bottoms out at 125, files have no color channel', 'Sapphire screen, 256 GB internal'],
     msrp: 9195,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 10498, usedTypical: 10729, usedHigh: 10866, newPrice: 11050, note: "Used saves about $500 against the $11,050 new price.", sources: [
+      { retailer: "B&H Used", grade: "grade 10", price: 10498, url: "https://www.bhphotovideo.com/c/product/803516961-USE/leica_20208_m11_monochrom_rangefinder_camera.html" },
+      { retailer: "KEH", grade: "band across grades, three in stock", price: 10729, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "top of band", price: 10866, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" }
+    ] },
     verdict: "The best monochrome sensor Leica has made. Buy it if you already know you are a black-and-white shooter; otherwise the M10 Monochrom gets you most of the way for much less.",
     image: { src: 'img/m11m.jpg', alt: 'Leica M11 Monochrom body, front view on a wooden block', credit: 'Ferencvizi', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:L1010245.jpg' },
     altImage: { src: 'img/m11m-lens.jpg', alt: 'Leica M11 Monochrom with a 35 mm APO-Summicron', credit: 'Ferencvizi', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M11_Monochrom_L1000451.jpg', caption: 'All-black: no dot, black-on-black engraving.' },
@@ -521,7 +576,15 @@ const ROWS = [
     firmware: { latest: '2.6.1', date: '2026-01', active: true, note: 'Still supported.' },
     identifiers: ['No red dot; Leica script engraved on the top plate', 'Sapphire screen, 256 GB internal', 'Available in black (aluminum) and silver (brass), unlike the Monochrom and M11-D', 'Content Credentials in the menu (the M11-D has them too; only "first" belongs to the -P)', 'A Metal Gray variant was announced May 2026'],
     msrp: 9195,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 8221, usedTypical: 9300, usedHigh: 10650, newPrice: 10400, note: "New price is the $10,400 strike-through Adorama shows; not separately verified. The widest spread of any current body: KEH asks near new, Adorama discounts hard.", sources: [
+      { retailer: "Adorama Used", grade: "Excellent Plus, black, marked down from $10,400", price: 8221, url: "https://www.adorama.com/used-leica-m11-p-rangefinder-camera-black/p/imclcm11p" },
+      { retailer: "KEH", grade: "silver chrome, band", price: 8802, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "B&H Used", grade: "grade 9, black", price: 9152, url: "https://www.bhphotovideo.com/c/product/803530692-USE/leica_20211_m11_p_rangefinder_camera_black.html" },
+      { retailer: "B&H Used", grade: "grade 9, metal gray", price: 9152, url: "https://www.bhphotovideo.com/c/product/803512986-USE/leica_20071_m11_p_rangefinder_camera_metal.html" },
+      { retailer: "B&H Used", grade: "grade 9+, black", price: 9360, url: "https://www.bhphotovideo.com/c/product/803513183-USE/leica_20211_m11_p_rangefinder_camera_black.html" },
+      { retailer: "KEH", grade: "black paint", price: 10400, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "silver chrome, top of band", price: 10650, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" }
+    ] },
     verdict: "The M11 to buy if you want the current camera with no asterisks: sapphire, the big internal memory, and a body that never saw the launch bugs. Pay the premium over a used M11 only if those matter to you.",
     image: { src: 'img/m11.jpg', alt: 'Stand-in photo: a Leica M11, which the M11-P shares apart from the red dot', credit: 'Henry Söderlund', license: 'CC BY 2.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M11_-_by_Henry_Söderlund_(52659157434).jpg', standIn: 'Shown: M11. No freely licensed photo of the M11-P exists; it is this body with the red dot removed and the Leica script engraved on top.' },
   },
@@ -545,7 +608,11 @@ const ROWS = [
     firmware: { latest: '2.6.1', date: '2026-01', active: true, note: 'Still supported; updates run from the card or FOTOS with no on-camera progress display.' },
     identifiers: ['No rear screen; large ISO dial on the back', 'No red dot; white Leica script on top', 'No dummy advance lever (a screenless M with a thumb lever is an M10-D)', 'Matte black aluminum only', 'No removable baseplate'],
     msrp: 9395,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 9316, usedTypical: 9399, usedHigh: 10950, newPrice: 10950, note: "KEH top of band equals the new price; used barely discounts this one.", sources: [
+      { retailer: "KEH", grade: "band across grades, three in stock", price: 9316, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "Adorama Used", grade: "Open Box", price: 9399, url: "https://www.adorama.com/used-leica-m11-d-rangefinder-camera-black/p/imclcm11d" },
+      { retailer: "KEH", grade: "top of band", price: 10950, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" }
+    ] },
     verdict: "If you want screenless and current, this is the only choice, and it is a good one. Used examples are rare and barely discounted; buying new is reasonable.",
     image: { src: 'img/m10d.jpg', alt: 'Stand-in photo: the rear of a Leica M10-D, the previous screenless M', credit: 'Ferencvizi', license: 'CC BY-SA 4.0', pageUrl: 'https://commons.wikimedia.org/wiki/File:Leica_M10-D_(Typ_9217).jpg', standIn: 'Shown: M10-D. No freely licensed photo of the M11-D exists; the M11-D has the same blank back with a larger ISO dial and no thumb lever.' },
   },
@@ -570,7 +637,10 @@ const ROWS = [
     firmware: { latest: '2.6.1', date: '2026-01', active: true, note: 'Shares the M11 firmware line.' },
     identifiers: ['No rangefinder, illumination or frame-line windows on the front', 'EVF eyepiece in the finder hump', 'No ISO dial on the left shoulder', '147 mm wide; the preview lever is now an electronic control'],
     msrp: 8995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: 8367, usedTypical: 8600, usedHigh: 8884, newPrice: 9290, note: "KEH only. Five used bodies within a year of launch says something about how it was received.", sources: [
+      { retailer: "KEH", grade: "band across grades, five in stock", price: 8367, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
+      { retailer: "KEH", grade: "top of band", price: 8884, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" }
+    ] },
     verdict: "Not a rangefinder, and that is the point. If close focus, fast lenses wide open, or glasses have been fighting you, this solves all three. If you want the rangefinder experience, nothing here changes.",
     image: null,
     referenceUrl: 'https://leica-camera.com/en-US/photography/cameras/m/m-ev1-black',
@@ -598,7 +668,9 @@ const ROWS = [
     firmware: { latest: '9.5.6', date: '2026-06', active: true, note: 'The most actively updated camera here: 9.5.6 (Jun 2026) rebuilt metering and the app. A used body may be several versions behind; update before judging it.' },
     identifiers: ['Slab-sided machined aluminum body, smaller than an M', 'Completely blank back: no screen, no buttons', 'OLED strip on the top plate beside the shutter dial', 'Model code A3410; A1112, A1571, A2572 or A2572+ are APS-C Pixiis, not the Max'],
     msrp: 4325,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, sources: [] },
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: 4499, note: "No used listing anywhere among the three; B&H sells it new at $4,499 (matte black) to $4,999 (32 GB space gray).", sources: [
+
+    ] },
     verdict: "Interesting, cheap to keep in batteries, and not yet a camera to rely on. Buy new from Pixii if the concept appeals; the used market is too thin to price and the firmware moves fast enough that a used body is a project.",
     image: null,
     referenceUrl: 'https://pixii.fr/pixii-max',

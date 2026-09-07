@@ -192,3 +192,5 @@ tbody tr:hover { background: var(--bg); }
 
 /* Sources */
 .sources ul { margin-bottom: 12px; }
+
+.fallback { color: var(--warn); }

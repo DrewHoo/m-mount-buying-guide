@@ -356,11 +356,33 @@ function TimelineEntry({ camera: c, fam }) {
           </div>
           <div>
             <h4>Used price</h4>
-            <p className="price">
-              <span className="price-typ">{fmtUsd(c.prices.usedTypical)}</span>
-              <span className="muted"> typical · {fmtUsd(c.prices.usedLow)}–{fmtUsd(c.prices.usedHigh)}</span>
-            </p>
-            {c.prices.newPrice && <p className="muted small">Still sold new at {fmtUsd(c.prices.newPrice)}.</p>}
+            {c.prices.usedTypical != null ? (
+              <p className="price">
+                <span className="price-typ">{fmtUsd(c.prices.usedTypical)}</span>
+                <span className="muted"> typical · {fmtUsd(c.prices.usedLow)}–{fmtUsd(c.prices.usedHigh)}</span>
+              </p>
+            ) : c.prices.fallback ? (
+              <p className="price">
+                <span className="price-typ">~{fmtUsd(c.prices.fallback.typical)}</span>
+                <span className="muted">
+                  {' '}
+                  {fmtUsd(c.prices.fallback.low)}–{fmtUsd(c.prices.fallback.high)} elsewhere
+                </span>
+              </p>
+            ) : (
+              <p className="price muted">No used stock found</p>
+            )}
+            {c.prices.note && <p className="muted small">{c.prices.note}</p>}
+            {c.prices.fallback && (
+              <p className="muted small">
+                Fallback: {c.prices.fallback.detail}{' '}
+                <a href={c.prices.fallback.url} target="_blank" rel="noreferrer">
+                  {c.prices.fallback.source}
+                </a>
+                .
+              </p>
+            )}
+            {c.prices.newPrice && <p className="muted small">Sold new at {fmtUsd(c.prices.newPrice)}.</p>}
             <p className="muted small">Launch MSRP {fmtUsd(c.msrp)}.</p>
             {c.prices.sources.length > 0 && (
               <ul className="src-list">
@@ -417,9 +439,22 @@ const COLUMNS = [
   { id: 'weight', label: 'Weight', get: (c) => c.body.weight, render: (c) => `${c.body.weight} g` },
   { id: 'depth', label: 'Depth', get: (c) => c.body.d, render: (c) => `${c.body.d} mm` },
   { id: 'rel', label: 'Reliability', get: (c) => c.reliability.grade, render: (c) => <span className={`grade ${relTone[c.reliability.grade]}`}>{c.reliability.grade}</span> },
-  { id: 'price', label: 'Used, typical', get: (c) => c.prices.usedTypical ?? Infinity, render: (c) => fmtUsd(c.prices.usedTypical) },
-  { id: 'range', label: 'Used range', get: (c) => c.prices.usedLow ?? Infinity, render: (c) => `${fmtUsd(c.prices.usedLow)}–${fmtUsd(c.prices.usedHigh)}` },
+  { id: 'price', label: 'Used, typical', get: (c) => c.prices.usedTypical ?? c.prices.fallback?.typical ?? Infinity, render: (c) => <PriceCell camera={c} /> },
+  { id: 'range', label: 'Used range', get: (c) => c.prices.usedLow ?? c.prices.fallback?.low ?? Infinity, render: (c) => <RangeCell camera={c} /> },
 ]
+
+// Retailer price when one of the three had stock; otherwise the labeled
+// fallback (eBay sold, MPB, dealers) marked with a tilde and a tooltip.
+function PriceCell({ camera: c }) {
+  if (c.prices.usedTypical != null) return fmtUsd(c.prices.usedTypical)
+  if (c.prices.fallback) return <span className="fallback" title={`${c.prices.fallback.detail} ${c.prices.fallback.source}`}>~{fmtUsd(c.prices.fallback.typical)}</span>
+  return <span className="muted">none</span>
+}
+function RangeCell({ camera: c }) {
+  if (c.prices.usedLow != null) return `${fmtUsd(c.prices.usedLow)}–${fmtUsd(c.prices.usedHigh)}`
+  if (c.prices.fallback) return <span className="fallback">~{fmtUsd(c.prices.fallback.low)}–{fmtUsd(c.prices.fallback.high)}</span>
+  return <span className="muted">no stock</span>
+}
 
 function ModelCell({ camera: c }) {
   const fam = familyById[c.family]
@@ -478,7 +513,8 @@ function Table({ cameras, sort, dir, onSort }) {
       <p className="muted small">
         Usable ISO is the reviewer consensus for "clean" and "still usable with noise reduction", not the max setting. Reliability
         grades: A no known failure mode on a current platform, B no known failure mode but an aging platform, C a real known
-        issue to check for, D a known issue that can total the body. Click a model name to jump to its timeline entry.
+        issue to check for, D a known issue that can total the body. Prices are from B&H Used, KEH and Adorama Used; a tilde marks a
+        body none of the three stocked, priced from other channels instead. Click a model name to jump to its timeline entry.
       </p>
     </section>
   )
