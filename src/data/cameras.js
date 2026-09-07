@@ -48,7 +48,7 @@ export const DIMENSIONS = [
   { id: 'shutter', label: 'Shutter', why: 'Mechanical shutter noise ranges from the M9\'s two-stage clack to the near-silent M10-P. The M11 adds a fully electronic shutter to 1/16,000 s, which is silent but rolls on fast motion. Flash sync is 1/180 s on every model.' },
   { id: 'screen', label: 'Screen', why: 'The M9\'s 2.5" 230k-dot screen is barely usable for checking focus. The Typ 240 onward have 3" 920k+ screens; the M10-P and M11 add touch. The -D models have no screen at all, which is a feature or a dealbreaker.' },
   { id: 'size', label: 'Size and weight', why: 'Depth is the number that matters in a jacket pocket: the Typ 240 is 42 mm, every other M is 37–39 mm. Weight ranges from 530 g (black M11) to 680 g (Typ 240).' },
-  { id: 'price', label: 'Used cost', why: 'Observed at B&H Used, KEH and Adorama Used on the date at the top. Ranges span condition grades; the typical number is a mid-grade body. Leica used prices are sticky: bodies hold value, so buying a generation older rarely saves as much as you would expect.' },
+  { id: 'price', label: 'Used cost', why: 'Observed at B&H Used, KEH and Adorama Used on the date at the top. Ranges span condition grades; the typical number is a mid-grade body. Seven bodies had no stock at any of the three (the pre-M10 CCD and 262 bodies, the M10-D, the Pixii Max); those show a labeled fallback from MPB, eBay sold data or UsedCameraTracker, marked with a tilde. Leica used prices are sticky: bodies hold value, so buying a generation older rarely saves as much as you would expect.' },
 ]
 
 // Recommendations by what the buyer says they want. ids reference CAMERAS.
@@ -90,7 +90,7 @@ const ROWS = [
     firmware: { latest: '1.216', date: '2017-11', active: false, note: 'Frozen at 1.216 (Nov 2017). Leica has removed M9 firmware from its downloads; Red Dot Forum hosts copies.' },
     identifiers: ['Red dot and "M9" lettering on the front (both absent on the M9-P)', 'Frame-line preview lever beside the mount (absent on the M-E)', 'USB port under a flap (absent on the M-E)', 'Leatherette covering, plain-glass 2.5" screen', 'Steel grey or black paint, later silver chrome'],
     msrp: 6995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date. The sensor question splits this market: expect a $1,000 to $1,800 premium for a documented corrosion-resistant CCD.", fallback: { low: 2650, typical: 3349, high: 4445, source: "MPB US and UsedCameraTracker", url: "https://www.mpb.com/en-us/product/leica-m9-black", detail: "asking prices. MPB had two at $3,349 (Good, no sensor statement); UsedCameraTracker shows asks from $2,650 to $4,445 with sales clearing near $3,165. Bodies with a replaced sensor ask $4,000 and up." }, sources: [
 
     ] },
     verdict: "Only buy one with a documented sensor replacement or a Kolari repair receipt, and price the rest as if the sensor will fail. If you want the CCD files, the M-E (Typ 220) is the same camera for less.",
@@ -117,7 +117,7 @@ const ROWS = [
     firmware: { latest: '1.216', date: '2017-11', active: false, note: 'Shares the M9 firmware line, frozen at 1.216.' },
     identifiers: ['No red dot and no "M9" lettering; Leica script engraved on the top plate', 'Vulcanite covering, coarser than the M9 leatherette', 'Sapphire screen cover (reflections look different from plain glass)', 'Frame-line lever present, which separates it from the M-E', 'Black paint or silver chrome'],
     msrp: 7995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date. MPB was also out of stock.", fallback: { low: 3750, typical: 4800, high: 6400, source: "Summimarket eBay sold data", url: "https://www.summimarket.com/sales/m-digital/m9p", detail: "sold prices from late 2025 ($3,750, $4,250, $6,400); the $6,400 sale was a \"CCD ID 15\" replaced-sensor body. Current asks cluster $4,600 to $6,400, with pristine replaced-sensor examples to $8,950." }, sources: [
 
     ] },
     verdict: "The nicest CCD M to own, and it carries the same sensor risk as the M9. Pay the premium only for a body with a replaced sensor; otherwise the extra money buys cosmetics on a camera that may need a $999 repair.",
@@ -143,7 +143,7 @@ const ROWS = [
     firmware: { latest: '1.216', date: '2017-11', active: false, note: 'Shares the M9 firmware line.' },
     identifiers: ['Anthracite grey paint only, with the red dot present', 'No frame-line preview lever beside the mount, the most reliable tell', 'No USB port', 'Plain-glass 2.5" screen, 37 mm deep (the later M-E Typ 240 is 42 mm deep with a 3" screen)'],
     msrp: 5450,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date. Thinnest data of any body here; treat the figure as an anchor, not a market price.", fallback: { low: 4273, typical: 4273, high: 4273, source: "Kamerastore (sold out)", url: "https://kamerastore.com/en-us/products/leica-m-e-typ-220-10759-leica-m", detail: "a stale asking price; no in-stock US unit was found at MPB, KEH or Kamerastore. KEH's out-of-stock listing flags \"original sensor, not covered by warranty\", which is the disclosure to look for." }, sources: [
 
     ] },
     verdict: "If you want CCD files and nothing else, this is the one: the missing lever and USB port cost nothing in practice. Same rule as the M9: replaced sensor or Kolari receipt, or price it as a gamble.",
@@ -255,7 +255,7 @@ const ROWS = [
     firmware: { latest: '1.1.0.0', date: '2021-02', active: false, note: 'Final release 1.1.0.0, Feb 2021.' },
     identifiers: ['Red dot present', 'No live view button and no video: the rear column reads WB, Play, Delete, ISO, Menu, Set', 'Lighter in the hand than a Typ 240 (aluminum top plate)', 'Same 42 mm body'],
     msrp: 5195,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", fallback: { low: 3392, typical: 3919, high: 4500, source: "UsedCameraTracker", url: "https://usedcameratracker.com/price-guide/leica-m-typ-262/", detail: "ten active asking prices; US asks cluster $4,300 to $4,500, the low end is European. MPB US was out of stock." }, sources: [
 
     ] },
     verdict: "The value pick if you will never use live view: same files as the Typ 240, quieter, lighter, cheaper. If you might ever want an EVF or close focus, buy the Typ 240 instead.",
@@ -337,7 +337,7 @@ const ROWS = [
     firmware: { latest: '2.1.0.0', date: '2021-02', active: false, note: 'Tracks the Typ 240 line, frozen Feb 2021.' },
     identifiers: ['Anthracite paint with a black leather wrap', '42 mm deep with a 3" screen; the 2012 M-E (Typ 220) is 37 mm with a 2.5" screen', 'Do not pay a limited-edition premium: the "700 units" claim on Wikipedia is unsourced'],
     msrp: 3995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", fallback: { low: 3799, typical: 3799, high: 3799, source: "MPB US", url: "https://www.mpb.com/en-us/product/leica-m-e-typ-240", detail: "one unit in stock, Excellent, with charger and battery and a six-month warranty. The only verified in-stock US example." }, sources: [
 
     ] },
     verdict: "The newest 240-generation bodies at the lowest 240-generation price. If a Typ 240 is the right camera for you, look for one of these first.",
@@ -425,7 +425,7 @@ const ROWS = [
     firmware: { latest: '2022-11', date: '2022-11', active: false, note: 'Shares the M10 firmware cadence, frozen Nov 2022.' },
     identifiers: ['No rear screen; fold-out exposure-compensation dial on the back', 'Dummy film-advance lever on the top plate (the M-D has none)', 'ISO dial on top (the M-D puts it on the back)', 'No red dot, Leica script on top'],
     msrp: 7995,
-    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date.", sources: [
+    prices: { usedLow: null, usedTypical: null, usedHigh: null, newPrice: null, note: "No stock at B&H Used, KEH or Adorama Used on the observation date. The best-supplied of the unlisted bodies.", fallback: { low: 7158, typical: 7549, high: 8019, source: "MPB US and UsedCameraTracker", url: "https://www.mpb.com/en-us/product/leica-m10-d", detail: "MPB US asks: two Excellent at $7,549, one Like New with box at $8,019, and a European unit at $7,158. UsedCameraTracker recorded one sale at $7,700 in June 2026." }, sources: [
 
     ] },
     verdict: "The screenless M that gives you the screen back when you need it. If you are choosing between this and the M-D (Typ 262), the phone app and the thinner body are worth the difference.",
@@ -496,7 +496,7 @@ const ROWS = [
   // -------------------------------------------------------------------- M11
   {
     id: 'm11', name: 'M11', maker: 'Leica', family: 'm11',
-    announced: '2022-01', shipped: '2022-01', discontinued: null,
+    announced: '2022-01', shipped: '2022-01', discontinued: '2025',
     role: '60 MP BSI, electronic shutter, no baseplate',
     summary: "A 60 MP back-illuminated sensor with selectable 60/36/18 MP raw, base ISO 64, an electronic shutter to 1/16,000, 64 GB internal storage, USB-C charging, and the removable baseplate gone after 68 years. Black is aluminum and 110 g lighter than silver.",
     sensor: { type: 'CMOS', mono: false, maker: 'Undisclosed (Sony-fabricated per credible reporting)', mp: 60, note: 'BSI. Triple resolution uses the full sensor at 60, 36 or 18 MP. Very thin two-layer IR/UV cover glass and no microlens offset, which is why wide M lenses behave well.' },
@@ -517,7 +517,7 @@ const ROWS = [
     firmware: { latest: '2.6.1', date: '2026-01', active: true, note: 'Still supported: 2.6.1 (Jan 2026) added Noctilux-M 35 f/1.2 support; 2.6.0 (Oct 2025) added white-balance fine-tuning and lens-profile override.' },
     identifiers: ['Red dot on the front (the M11-P, M11-D and Monochrom delete it)', 'No removable baseplate; a body sold "with spare baseplate" is not an M11', 'Black = aluminum top, light; silver = brass top, heavy', '64 GB internal memory, not 256', 'Toughened glass screen, no Content Credentials'],
     msrp: 8995,
-    prices: { usedLow: 7359, usedTypical: 7500, usedHigh: 7766, newPrice: null, note: "KEH only; no used M11 at B&H or Adorama. Glossy black excluded from the range. New price could not be verified on the observation date.", sources: [
+    prices: { usedLow: 7359, usedTypical: 7500, usedHigh: 7766, newPrice: null, note: "KEH only; no used M11 at B&H or Adorama. Glossy black excluded from the range. The standard M11 is no longer sold new; the Glossy Black finish lists at $10,400 at Leica USA.", sources: [
       { retailer: "KEH", grade: "silver chrome", price: 7359, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
       { retailer: "KEH", grade: "black paint, band across grades (four in stock)", price: 7367, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
       { retailer: "KEH", grade: "black paint, top of band", price: 7766, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
@@ -576,7 +576,7 @@ const ROWS = [
     firmware: { latest: '2.6.1', date: '2026-01', active: true, note: 'Still supported.' },
     identifiers: ['No red dot; Leica script engraved on the top plate', 'Sapphire screen, 256 GB internal', 'Available in black (aluminum) and silver (brass), unlike the Monochrom and M11-D', 'Content Credentials in the menu (the M11-D has them too; only "first" belongs to the -P)', 'A Metal Gray variant was announced May 2026'],
     msrp: 9195,
-    prices: { usedLow: 8221, usedTypical: 9300, usedHigh: 10650, newPrice: 10400, note: "New price is the $10,400 strike-through Adorama shows; not separately verified. The widest spread of any current body: KEH asks near new, Adorama discounts hard.", sources: [
+    prices: { usedLow: 8221, usedTypical: 9300, usedHigh: 10650, newPrice: 10400, note: "New price verified at Leica USA. The widest spread of any current body: KEH asks near new, Adorama discounts hard.", sources: [
       { retailer: "Adorama Used", grade: "Excellent Plus, black, marked down from $10,400", price: 8221, url: "https://www.adorama.com/used-leica-m11-p-rangefinder-camera-black/p/imclcm11p" },
       { retailer: "KEH", grade: "silver chrome, band", price: 8802, url: "https://www.keh.com/shop/cameras/digital-cameras.html?Brand_Name=Leica&Stock=In_Stock" },
       { retailer: "B&H Used", grade: "grade 9, black", price: 9152, url: "https://www.bhphotovideo.com/c/product/803530692-USE/leica_20211_m11_p_rangefinder_camera_black.html" },

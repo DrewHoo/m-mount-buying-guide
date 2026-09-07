@@ -63,3 +63,9 @@ Specs were cross-checked against the sources below on 2026-09-07. Judgment field
 ## Images
 
 Listed per image on the page and in `src/data/cameras.js`. All from Wikimedia Commons or Flickr under CC BY or CC BY-SA licenses.
+
+## Prices (observed 2026-09-07)
+
+- B&H Used, KEH and Adorama Used listing URLs are stored per data point in `src/data/cameras.js` (`prices.sources`).
+- Fallbacks for bodies none of the three stocked: MPB US (https://www.mpb.com/en-us/), Summimarket eBay sold data (https://www.summimarket.com/sales/m-digital/m9p), UsedCameraTracker price guides (https://usedcameratracker.com/price-guide/leica-m9/), Kamerastore (https://kamerastore.com/).
+- New prices: B&H product pages for the M11-D, M11 Monochrom, M EV1 and Pixii Max; Leica Camera USA for the M11-P ($10,400) and the M11 Glossy Black ($10,400).
